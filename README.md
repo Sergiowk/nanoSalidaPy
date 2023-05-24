@@ -13,3 +13,9 @@ docker build -t local-mysql .
 ``` batch
 docker run -dp 3306:3306 local-mysql
 ```
+
+## Batch instructions
+- Feeding the DB 
+``` batch
+python .\batch_process.py
+```
