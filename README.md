@@ -19,3 +19,8 @@ docker run -dp 3306:3306 local-mysql
 ``` batch
 python .\batch_process.py
 ```
+
+## Activate virtualenv
+``` batch
+.\python_modules\Scripts\activate.ps1
+```
