@@ -11,7 +11,7 @@ mydb = mysql.connector.connect(
 cur = mydb.cursor()
 cur.execute("USE DB")
 
-sql_stmt = f"SELECT * FROM Drivers"
+sql_stmt = f"SELECT * FROM drivers"
 
 cur.execute(sql_stmt)
 response = cur.fetchall()

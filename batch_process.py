@@ -19,7 +19,7 @@ drivers = e.season(datetime.date.today().year).get_drivers()
 
 #Inserting the drivers into the DB
 for driver in drivers:
-    sql_stmt = f"INSERT INTO Drivers(Name, Number, Nationality, DOB) VALUES('{driver.given_name} {driver.family_name}', '{driver.permanent_number}','{driver.nationality}', '{driver.date_of_birth}')"
+    sql_stmt = f"INSERT INTO drivers(name, number, nationality, dob) VALUES('{driver.given_name} {driver.family_name}', '{driver.permanent_number}','{driver.nationality}', '{driver.date_of_birth}')"
     cur.execute(sql_stmt)
     mydb.commit()
 

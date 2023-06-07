@@ -3,10 +3,10 @@ CREATE DATABASE `DB`;
 USE `DB`;
 
 
-DROP TABLE IF EXISTS `Drivers`;
-CREATE TABLE `Drivers` (
-	`Name` varchar(100) NOT NULL,
-	`Number` tinyint,
-	`Nationality` varchar(50) NOT NULL,
-	`DOB` datetime
+DROP TABLE IF EXISTS `drivers`;
+CREATE TABLE `drivers` (
+	`name` varchar(100) NOT NULL,
+	`number` tinyint,
+	`nationality` varchar(50) NOT NULL,
+	`dob` datetime
 );

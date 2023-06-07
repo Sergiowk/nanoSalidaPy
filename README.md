@@ -24,3 +24,12 @@ python .\batch_process.py
 ``` batch
 .\python_modules\Scripts\activate.ps1
 ```
+
+## Run the API
+``` batch
+python .\post_server.py
+```
+
+## Link to the API 
+
+http://127.0.0.1:5000/drivers

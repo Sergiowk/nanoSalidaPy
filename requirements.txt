@@ -1,3 +1,12 @@
 mysql-connector-python
 virtualenv
 flask
+#Module for connecting SQL DB
+flask-sqlalchemy
+#Module for defining schemas in our db
+flask-marshmallow
+marshmallow-sqlalchemy
+#Driver for connecting to the DB
+pymysql
+#Ergast library for F1 Data
+ergast_py
