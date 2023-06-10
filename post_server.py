@@ -1,12 +1,13 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+import os
 
 #Initialize the application
 app = Flask(__name__)
 
-#Connect to the DB 
-app.config['SQLALCHEMY_DATABASE_URI'] ='mysql+pymysql://root:password@localhost:3306/DB'
+#Connect to the DB (Instead of localhost, we put the name of the container in the direction)
+app.config['SQLALCHEMY_DATABASE_URI'] ='mysql+pymysql://root:password@db:3306/DB'
 
 #Avoid Warnings
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
@@ -23,7 +24,7 @@ class Drivers(db.Model):
     nationality = db.Column(db.String(50))
     dob = db.Column(db.DateTime)
 
-    def __init_(self,name, number, nationality):
+    def __init_(self,name, number, nationality, dob):
         self.name = name
         self.number = number
         self.nationality = nationality
@@ -56,4 +57,6 @@ def index():
 
 #Run the application
 if __name__=="__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
+    

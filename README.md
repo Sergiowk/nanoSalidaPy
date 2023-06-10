@@ -1,35 +1,25 @@
-## Install requirements
+## Build Docker Compose image
+
 ``` batch
-pip install -r requirements.txt
+docker-compose up
 ```
 
-## Build Docker image
-- Start Docker Desktop
-- Build image
-``` batch
-docker build -t local-mysql .
-```
-- Run container
-``` batch
-docker run -dp 3306:3306 local-mysql
-```
-
-## Batch instructions
-- Feeding the DB 
+## Feed the DB 
 ``` batch
 python .\batch_process.py
 ```
 
-## Activate virtualenv
-``` batch
-.\python_modules\Scripts\activate.ps1
-```
-
-## Run the API
-``` batch
-python .\post_server.py
-```
-
 ## Link to the API 
 
-http://127.0.0.1:5000/drivers
+http://localhost:5000/
+
+## Get the full list of drivers in the current season
+
+http://localhost:5000/drivers
+
+
+## Turn off the Docker images
+
+``` batch
+docker-compose down
+```

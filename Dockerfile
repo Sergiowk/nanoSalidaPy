@@ -1,9 +1,12 @@
-FROM mysql/mysql-server
+FROM python:3
 
-ENV MYSQL_DATABASE=DB \
-    MYSQL_ROOT_PASSWORD=password \
-    MYSQL_ROOT_HOST=%
+WORKDIR /app
 
-ADD schema.sql /docker-entrypoint-initdb.d
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 3306
+COPY . .
+
+#Running the API Sever
+CMD [ "python", "post_server.py" ]
+
