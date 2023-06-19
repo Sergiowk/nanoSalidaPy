@@ -10,4 +10,6 @@ marshmallow-sqlalchemy
 pymysql
 #Ergast library for F1 Data
 ergast_py
-django
+django==3.2.6
+#Env
+django-environ==0.4.5

@@ -36,7 +36,7 @@ services:
       - .:/appweb
     ports:
       - "8000:8000"
-    command: 
+    command: bash -c "python .\manage.py runserver"
     depends_on:
       - db
     networks:
