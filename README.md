@@ -6,7 +6,7 @@ docker-compose up
 
 ## Feed the DB 
 ``` batch
-python .\batch_process.py
+python .\db\batch_process.py
 ```
 
 ## Link to the API 
