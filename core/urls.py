@@ -5,5 +5,5 @@ from .views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name="home"),
-    path('drivers/', include('drivers.urls', namespace='drivers'))
+    path('home_drivers/', include('drivers.urls', namespace='drivers'))
 ]
