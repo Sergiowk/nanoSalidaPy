@@ -1,9 +1,10 @@
 from django.urls import path, include
-from .views import DriversList
+from .views import DriversListView, DriversCreateView
 
 
 app_name="drivers"
 
 urlpatterns = [
-    path('', DriversList.as_view(), name="home_drivers")
+    path('', DriversListView.as_view(), name="home_drivers"),
+    path('create/', DriversCreateView.as_view(), name="create_drivers")
 ]
