@@ -19,7 +19,7 @@ class Drivers(models.Model):
     nationality=models.CharField(max_length=250)
     dob=models.DateField()
     comments=models.TextField()
-
+    # Every model has another extra (hidden) field, which is the id
 
     def __str__(self):
         return self.name

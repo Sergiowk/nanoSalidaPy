@@ -1,20 +1,31 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import View
-from .forms import PostDriversForm
+from .forms import DriversForm
 from .models import Drivers
 
 # Create your views here.
 class DriversListView(View):
     def get(self, request, *args, **kwargs):
+        
+        drivers = Drivers.objects.all()
+        # To get all this info we will need to pass it through the context 
         context={
-
+            'drivers':drivers
         }
         return render(request, 'drivers.html', context)
     
+class DriversDetailView(View):
+    # In the get function we add the pk (primary key)
+    def get(self, request, pk, *args, **kwargs):
+        drivers = get_object_or_404(Drivers, pk=pk)
+        context={
+            'drivers':drivers
+        }
+        return render(request, 'drivers_details.html', context)
 
 class DriversCreateView(View):
     def get(self, request, *args, **kwargs):
-        form=PostDriversForm()
+        form=DriversForm()
         context={
             #This is the context from forms.py, we are using the fields which appears there. 
             'form':form
@@ -23,7 +34,7 @@ class DriversCreateView(View):
     
     def post(self, request, *args, **kwargs):
         if request.method=="POST":
-            form = PostDriversForm(request.POST)
+            form = DriversForm(request.POST)
             if form.is_valid():
                 name=form.cleaned_data.get('name')          
                 number=form.cleaned_data.get('number')            

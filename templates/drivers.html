@@ -9,5 +9,21 @@
     <h1>Drivers</h1>
 
     <a href="{% url 'drivers:create_drivers' %}">Create Driver</a>
+    <br/>
+    <br/>
+    <h2>List of drivers</h2>
+    <p>
+        {% for driver in drivers %}
+            <a href= "{% url 'drivers:drivers_details' driver.id %}">{{driver.name}}</a>
+            <!--
+            {{driver.number}}
+            {{driver.nationality}}
+            {{driver.dob}}
+            {{driver.comments}}
+            -->
+            <br/>
+            <br/>
+        {% endfor %}
+    </p>
 </body>
 </html>
