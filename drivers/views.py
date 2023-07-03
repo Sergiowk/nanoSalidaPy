@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import View
+from django.views.generic import View, UpdateView
 from .forms import DriversForm
 from .models import Drivers
+from django.urls import reverse_lazy
 
 # Create your views here.
 class DriversListView(View):
@@ -50,3 +51,14 @@ class DriversCreateView(View):
 
         }
         return render(request, 'driver_form.html', context)
+    
+class DriversUpdateView(UpdateView):
+
+    model=Drivers
+    fields=['name', 'number', 'nationality', 'dob', 'comments']
+    template_name='driver_update.html'
+
+    # In case the update was done succesfully, we redirect to the details page for this driver 
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse_lazy('drivers:drivers_details', kwargs={'pk':pk})
