@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Driver</title>
+</head>
+<body>
+    <h1>Delete Driver</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>If you click the button you will delete: {{drivers.name}} Driver</p>
+        
+        {{form}}
+        <br/>
+        <button type="submit">Delete</button>
+    </form>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import View, UpdateView
+from django.views.generic import View, UpdateView, DeleteView
 from .forms import DriversForm
 from .models import Drivers
 from django.urls import reverse_lazy
@@ -62,3 +62,8 @@ class DriversUpdateView(UpdateView):
     def get_success_url(self):
         pk = self.kwargs['pk']
         return reverse_lazy('drivers:drivers_details', kwargs={'pk':pk})
+    
+class DriversDeleteView(DeleteView):
+    model=Drivers
+    template_name='drivers_delete.html'
+    success_url= reverse_lazy('drivers:home_drivers')

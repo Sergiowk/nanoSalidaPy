@@ -17,6 +17,7 @@
         {% for driver in drivers %}
             <a href= "{% url 'drivers:drivers_details' driver.id %}">{{driver.name}}</a>
             <a href="{% url 'drivers:update_drivers' driver.id%}">Update Driver</a>
+            <a href="{% url 'drivers:delete_drivers' driver.id%}">Delete Driver</a>
             <!--
             {{driver.number}}
             {{driver.nationality}}
