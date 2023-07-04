@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +10,13 @@
 </head>
 <body>
     <h1>Home</h1>
-    <a href="{% url 'drivers:home_drivers' %}">Drivers List</a>
+    <a href="{% url 'drivers:home_drivers' %}"
+        class="group relative inline-block overflow-hidden rounded border border-gray-100 bg-gray-200  px-12 py-3 text-sm font-medium text-slate-800 hover:text-violet-600 focus:outline-none focus:ring active:bg-indigo-600 active:text-white">  
+        Drivers List
+    </a>
 </body>
 </html>
+
+
+{% endblock content %}
+

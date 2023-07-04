@@ -13,3 +13,5 @@ ergast_py
 django==3.2.6
 #Env
 django-environ==0.4.5
+#Tailwind
+django-tailwind==2.2.0
